@@ -21,7 +21,7 @@ input {
     padding: 0 10px;
     color: white; 
     display: flex;
-    
+    align-items: flex-end;
     flex-direction: column;
 
 }
