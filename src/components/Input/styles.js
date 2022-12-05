@@ -14,14 +14,14 @@ font-family: 'Roboto';
 input {
     width: 100%;
     height: 75px;
-    background: #acff;
+    background: #121111;
     border: 0;
     font-size: 30px;
     font-family: 'Roboto';
     padding: 0 10px;
-
+    color: white; 
     display: flex;
-    align-items: flex-end;
+    
     flex-direction: column;
 
 }

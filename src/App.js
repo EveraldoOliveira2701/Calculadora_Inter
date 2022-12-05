@@ -25,12 +25,55 @@ const App = () => {
        
       }
   }
+  const handleMinusNumbers = () => {
+    if (firstNumber === '0') {
+      setFirstNumber(String(currentNumber));
+      setCurrentNumber('0')
+      setOperation('-')
+    } else {
+      const sum = Number(firstNumber) - Number(currentNumber);
+      setCurrentNumber(String(sum))
+     setOperation('')
+    }
+}
+const handleMultNumbers = () => {
+  if (firstNumber === '0') {
+    setFirstNumber(String(currentNumber));
+    setCurrentNumber('0')
+    setOperation('*')
+  } else {
+    const sum = Number(firstNumber) * Number(currentNumber);
+    setCurrentNumber(String(sum))
+   setOperation('')
+  }
+}
+const handleDivisaoNumbers = () => {
+  if (firstNumber === '0') {
+    setFirstNumber(String(currentNumber));
+    setCurrentNumber('0')
+    setOperation('/')
+  } else {
+    const sum = Number(firstNumber) / Number(currentNumber);
+    setCurrentNumber(String(sum))
+   setOperation('')
+  }
+}
+
   const handleEquals = () => {
       if(firstNumber !== '0' && operation !== '' && currentNumber !== '0') {
         switch (operation) {
           case '+': 
             handleSumNumbers();
-            break;      
+            break;  
+          case '-': 
+            handleMinusNumbers();
+            break;   
+          case '*': 
+            handleMultNumbers();
+            break;
+          case '/':
+            handleDivisaoNumbers();
+            break;
           default:
             break;
         }
@@ -44,15 +87,15 @@ const App = () => {
           <Input value={currentNumber}/>
           <Row>
             <Button label="C" onCLick={handleOnClear}/>
-            <Button label="%"/>
-            <Button label="/"/>
-            <Button label="x"/>
+            <Button label="0" onCLick={()=> handleAddNumber('0')}/>
+            <Button label="/" onCLick={handleDivisaoNumbers}/>
+            <Button label="x" onCLick={handleMultNumbers}/>
           </Row>
           <Row>
             <Button label="7" onCLick={()=> handleAddNumber('7')}/>
             <Button label="8" onCLick={()=> handleAddNumber('8')}/>
             <Button label="9" onCLick={()=> handleAddNumber('9')}/>
-            <Button label="0" onCLick={()=> handleAddNumber('0')}/>
+            <Button label="-" onCLick={handleMinusNumbers}/>
           </Row>
           <Row>
             <Button label="4" onCLick={()=> handleAddNumber('4')}/>
